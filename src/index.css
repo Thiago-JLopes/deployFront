@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #131324;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body, button, input {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+label {
+    font-size: small;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
