@@ -53,6 +53,20 @@ export default function Chat() {
       let translate = "";
 
       try {
+        if(data.language === currentUser.language) {
+
+          const newMessage = {
+            content: data.message,
+            sender: isSender,
+            type: data.userId,
+            username: data.username,
+          };
+
+          // Atualiza o estado com a nova mensagem
+          setMessages((prevMessages) => [...prevMessages, newMessage]);  
+
+          return;
+        }
         // Faz a tradução da mensagem recebida para a linguagem do usuário atual
         translate = await axios.post(`https://chat-back-deploy.onrender.com/translate`, {
           msg: data.message,
