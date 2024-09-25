@@ -54,7 +54,7 @@ export default function Chat() {
 
       try {
         if(data.language === currentUser.language) {
-
+          console.log("passou aqui")
           const newMessage = {
             content: data.message,
             sender: isSender,
