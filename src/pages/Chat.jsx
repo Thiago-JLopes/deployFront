@@ -102,11 +102,7 @@ export default function Chat() {
       setMessages([]);
       
       // Emite a entrada na sala para o servidor
-      socket.emit("joinRoom", {
-        roomName: roomName,
-        username: user.username,
-        language: user.language,
-      });
+      socket.emit("startListen", roomName);
     }
     
   };
@@ -197,7 +193,7 @@ export default function Chat() {
     try {
       let user = JSON.parse(localStorage.getItem("user"));
 
-      socket.emit("leaveRoom", roomName, user.username);
+      socket.emit("leaveRoom", roomName, user.username, user.language);
       console.log("user", user.userId);
       let roomUpdate = await axios.get(`https://chat-back-deploy.onrender.com/room/${roomName}`);
       let roomsNow = rooms.filter((room) => room.name !== roomUpdate.data[0].name)
